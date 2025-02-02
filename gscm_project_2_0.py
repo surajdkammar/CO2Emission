@@ -7,11 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1aEMszoiKhYJHyo7aieydao-pZEbwylgW
 """
 
-!pip install dash==2.13.0
-!pip install plotly==5.15.0
-
-!pip install dash_bootstrap_components
-
 import dash
 from dash import dcc, html, Input, Output
 import plotly.express as px
