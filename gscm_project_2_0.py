@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1aEMszoiKhYJHyo7aieydao-pZEbwylgW
 """
 from flask import Flask
-app = Flask(gscm_project_2_0)
+app = Flask(__name__)
 import dash
 from dash import dcc, html, Input, Output
 import plotly.express as px
@@ -38,7 +38,7 @@ feature_importance_df = pd.DataFrame({"Feature": X.columns, "Importance": featur
 feature_importance_df = feature_importance_df.sort_values(by="Importance", ascending=False)
 
 # Dash app
-app = dash.Dash(__name__)
+app_dash = dash.Dash(__name__, server=app, routes_pathname_prefix='/')
 app.layout = html.Div([
     html.H1("CO2 Emissions Prediction Dashboard"),
     dcc.Graph(id='feature-importance-graph'),
@@ -166,5 +166,4 @@ def update_dashboard(n_clicks, *feature_values):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-    app.run(port=8080)
 
