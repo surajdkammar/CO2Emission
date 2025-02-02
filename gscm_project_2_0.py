@@ -39,7 +39,7 @@ feature_importance_df = feature_importance_df.sort_values(by="Importance", ascen
 
 # Dash app
 app_dash = dash.Dash(__name__, server=app, routes_pathname_prefix='/')
-app.layout = html.Div([
+app_dash.layout = html.Div([
     html.H1("CO2 Emissions Prediction Dashboard"),
     dcc.Graph(id='feature-importance-graph'),
     html.Div(id='top-feature-suggestions'),
@@ -50,7 +50,7 @@ app.layout = html.Div([
     html.Div(id='prediction-output')
 ])
 
-@app.callback(
+@app_dash.callback(
     [Output('feature-importance-graph', 'figure'),
      Output('top-feature-suggestions', 'children'),
      Output('prediction-output', 'children')],
