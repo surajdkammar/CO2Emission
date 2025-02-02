@@ -1,1 +1,1 @@
-web: gunicorn app:server
+web: gunicorn gscm_project_2_0:server
